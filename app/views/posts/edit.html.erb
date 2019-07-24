@@ -1,2 +1,14 @@
 <h1>Posts#edit</h1>
 <p>Find me in app/views/posts/edit.html.erb</p>
+
+<h1>Bloggers#new</h1>
+<%=form_for @post do |f|%>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+    <%= f.label :blogger_id %>
+    <%= f.collection_select(:blogger_id, Blogger.all, :id, :name, prompt: "Select Blogger") %>
+    <%= f.collection_select(:destination_id, Destination.all, :id, :name, prompt: "Select Destination") %>
+    <%= f.submit "submit" %>
+<%end%>

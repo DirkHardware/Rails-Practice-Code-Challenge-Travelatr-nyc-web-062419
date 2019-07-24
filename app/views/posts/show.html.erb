@@ -1,4 +1,4 @@
 <h1><%= @post.title  %></h1>
-<p><%= @post.likes %> likes</p>
-
+<p>@post.likes</p>
+<%= button_to "Likes #{@post.likes}", like_path(@post), method: :patch %>
 <p>by: <%=link_to @post.blogger.name, blogger_path(@post.blogger) %> from <%= link_to @post.destination.name, destination_path(@post.destination) %>, <%=@post.destination.country%></p>

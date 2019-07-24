@@ -11,9 +11,17 @@ class BloggersController < ApplicationController
   end
 
   def edit
+    @blogger = Blogger.find(params[:id])
   end
 
   def update
+    @blogger = Blogger.new(blogger_params)
+    if @blogger.valid?
+      @blogger.save
+      redirect_to blogger_path(@blogger)
+    else 
+      render :edit 
+    end 
   end
 
   def new

@@ -7,8 +7,12 @@ class Blogger < ApplicationRecord
     has_many :destinations, through: :posts
 
     def featured_post
-        posts = self.posts.sort_by { |post| post.likes }.reverse
-        featured_post = posts[0]
+        if self.posts.count > 0 
+            posts = self.posts.sort_by { |post| post.likes }.reverse
+            featured_post = posts[0]
+        else 
+            featured_post = self.posts.new(destination_id: 1) 
+        end 
     end 
 
     def total_likes
