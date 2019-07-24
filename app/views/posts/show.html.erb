@@ -1,0 +1,4 @@
+<h1><%= @post.title  %></h1>
+<p><%= @post.likes %> likes</p>
+
+<p>by: <%=link_to @post.blogger.name, blogger_path(@post.blogger) %> from <%= link_to @post.destination.name, destination_path(@post.destination) %>, <%=@post.destination.country%></p>
